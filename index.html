@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Halden — Watches</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/shop.css">
+</head>
+<body>
+<header class="nav"><button id="mb" type="button" aria-expanded="false" aria-label="Open menu"><i class="bars"></i>Menu</button><a class="logo" href="#/">HALDEN</a><div class="nr"><button id="sb" type="button" data-act="search" aria-label="Search watches"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg></button><a id="wb" href="#/wishlist" class="wl" aria-label="Wishlist"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg><b id="wn" hidden>0</b></a><button id="cb" type="button" data-act="open-cart" aria-label="Open bag"><svg class="bagi" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h14l-1 10H6z"/><g class="lid"><path d="M4 10h16"/><path d="M9 10V7.5a3 3 0 016 0V10"/></g></svg><b id="cn" hidden>0</b></button></div></header>
+<aside class="side" id="menu"></aside>
+<main id="home">
+<div class="track" id="track"><div class="stage" id="st">
+  <div class="lite"></div>
+  <div id="hl"><h1><span class="gr">Halden</span><span class="gr">Watches</span></h1></div>
+  <div id="labs"><span>Elegant</span><span>Precious</span><span>Prestigious</span></div>
+  <div id="ip"><div class="pill" id="ip1">Exclusive pieces</div><div class="pill" id="ip2">Gold / Blue dial</div></div>
+  <div id="fcs"></div>
+  <div id="rw"><div id="rig"><div id="fr"><img class="cu" id="cu" alt=""></div></div></div>
+  <div id="acts"><button id="insp" type="button"><i>+</i>Inspect</button><button id="add" type="button">Add to cart</button></div><button id="icl" type="button">✕ Close</button>
+    <div id="info"><div class="glass lcard" id="lc"><p class="eyebrow" id="lcode"></p><h2 id="lname"></h2><p class="lt" id="ltitle"></p><p class="lprice" id="lprice"></p><a class="lnk" id="ldet" href="#/collection">View details →</a></div><div class="glass rcard" id="rcard"><dl><div><dt>Case</dt><dd id="r1"></dd></div><div><dt>Dial</dt><dd id="r2"></dd></div><div><dt>Strap</dt><dd id="r3"></dd></div></dl></div><div class="dockw"><button class="arr" id="ap" type="button" aria-label="Previous watch">←</button><div class="glass dock" id="th" role="group" aria-label="Choose a watch"></div><button class="arr" id="an" type="button" aria-label="Next watch">→</button></div></div>
+  <div class="vp" id="vp" aria-hidden="true"><canvas id="vc"></canvas><div class="glass vlab" id="vlab" aria-live="polite"><small id="vln"></small><b id="vlt"></b><p id="vlp"></p></div><div class="vbar glass"><span id="vhint"></span><div class="vtrack" id="vtrack" role="slider" aria-label="Inspection progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span id="vticks"></span><i id="vfill"></i></div><span id="vstep"></span></div><div class="vload" id="vload">Loading</div></div>
+  <div id="bw"><img id="bx" alt="Halden gift box"><img id="bxc" alt="Closed Halden gift box"></div>
+  <div id="dark"><img id="dz" alt="Close-up of the Halden dial"></div>
+  <svg id="ln"></svg><div id="cos"></div>
+  <div id="stm">
+    <div class="dk"><div class="ln"><span class="gr">Made to</span> <span class="slot"></span> <span class="gr">be worn</span></div><div class="ln"><span class="gr">every day, as a</span></div><div class="ln"><span class="gr sf">promise kept.</span></div></div>
+    <div class="mb"><div class="ln"><span class="gr">Made to</span> <span class="slot"></span></div><div class="ln"><span class="gr">be worn every</span></div><div class="ln"><span class="gr">day, as a</span></div><div class="ln"><span class="gr sf">promise kept.</span></div></div>
+  </div>
+  <div class="sm" id="s1">State of the art</div><div class="sm" id="s2">Gold on blue</div>
+  <div class="ec" id="e1"><i><img class="cv" id="ei1" alt=""></i></div><div class="ec" id="e2"><i><img id="ei2" alt="" style="height:100%"></i></div>
+  <div id="hint">Scroll</div>
+</div></div>
+<section class="end" id="end"><h3>The collection</h3><div class="eg" id="eg"></div><a class="ghost allbtn" href="#/collection">View the full collection</a></section>
+<footer id="homefoot"></footer>
+</main>
+<main id="app" hidden></main>
+<script src="js/data.js"></script>
+<script src="js/store.js"></script>
+<script src="js/main.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
