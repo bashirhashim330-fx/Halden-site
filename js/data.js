@@ -33,6 +33,12 @@ HAL.products = [
     anim:{ pv:[558,633], mc:[821,438], mr:342, bp:[550,723], br:143, r:331 } }
 ];
 HAL.availability = 'Available (demo)';
+/* Trust details shown on every watch page and on the policies page. All sample text: replace with the brand's real terms. */
+HAL.trust = {
+  warranty:'A 2-year limited warranty against manufacturing defects.',
+  returns:'30 days to return an unworn watch in its original box and packaging.',
+  days:{ std:'5 to 7 working days', exp:'2 to 3 working days', ins:'1 to 2 working days' }
+};
 HAL.shipping = [
   { id:'std', label:'Standard shipping', cost:25, note:'Sample rate. Replace with your real rate.' },
   { id:'exp', label:'Express shipping',  cost:60, note:'Sample rate. Replace with your real rate.' },

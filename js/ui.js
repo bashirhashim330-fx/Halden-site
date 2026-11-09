@@ -215,6 +215,16 @@ function viewCollection(){
 }
 
 /* ---------- product detail ---------- */
+/* "Delivery, returns and warranty": closed by default, one tap to open, so it is easy to find on a phone */
+function trustBlock(){
+  var t = H.trust, ship = H.shipping.map(function(o){ return esc(o.label) + ' ' + money(o.cost) + ' (' + esc(t.days[o.id] || '') + ')'; }).join('<br>');
+  return '<details class="trust"><summary>Delivery, returns and warranty</summary><dl>'+
+    '<div><dt>Warranty</dt><dd>'+esc(t.warranty)+'</dd></div>'+
+    '<div><dt>Delivery</dt><dd>'+ship+'</dd></div>'+
+    '<div><dt>Returns</dt><dd>'+esc(t.returns)+'</dd></div></dl>'+
+    '<p class="fine">Sample terms for this demo. <a class="lnk" href="#/policies">Shipping, returns and warranty</a></p></details>';
+}
+
 function viewProduct(id){
   var p = H.byId(id);
   if(!p) return { html:page('Not found', emptyState('Watch not found','That model does not exist.','<a class="solid" href="#/collection">Back to the collection</a>')) };
@@ -230,6 +240,7 @@ function viewProduct(id){
       '<dl class="kv"><div><dt>Colour</dt><dd>'+esc(p.metal)+' case, '+esc(p.dial.toLowerCase())+' dial</dd></div><div><dt>Strap</dt><dd>'+esc(p.strapNote)+'</dd></div><div><dt>Colourway</dt><dd>One colourway available</dd></div></dl>'+
       '<div class="buy"><button class="solid" type="button" data-act="add" data-id="'+p.id+'">Add to bag</button><button class="ghost" type="button" data-act="buynow" data-id="'+p.id+'">Buy now</button>'+heart(p)+'</div>'+
       '<p class="fine" id="inbag">'+(inBag ? inBag + ' in your bag' : '')+'</p>'+
+      trustBlock()+
       '<table class="specs"><caption>Specifications <small>Sample data. Replace with real specifications.</small></caption><tbody>'+p.specs.map(function(r){ return '<tr><th scope="row">'+esc(r[0])+'</th><td>'+esc(r[1])+'</td></tr>'; }).join('')+'</tbody></table></div></div>'+
     '<h2 class="sh">You may also like</h2><div class="pg small">'+others.map(card).join('')+'</div>'+
     (rec.length ? '<h2 class="sh">Recently viewed</h2><div class="pg small">'+rec.map(function(x){ return card(H.byId(x)); }).join('')+'</div>' : '');
@@ -435,7 +446,7 @@ function viewCare(){ return { html:page('Care', eyebrow('Product care') + '<h1 c
 var FAQ = [['Is this a real store?','No. Halden is a front-end demonstration. Orders are examples saved in your browser and nothing is paid, shipped or delivered.'],['Where are my demo orders saved?','Only in this browser, using local storage. They are not sent anywhere. Clearing your browser data removes them.'],['Are the prices and specifications real?','They are samples. Replace them with real data before using this site for a real business.'],['How does shipping work?','The shipping options at checkout are sample settings. Real rates and delivery promises must come from the business.'],['Can I return a watch?','Returns, warranty and repairs are not defined in this demo. See the sample policies page and replace it with real policies.'],['How do I contact the brand?','Contact details are placeholders. Add real support details on the contact page.']];
 function viewFaq(){ return { html:page('FAQ', eyebrow('Help') + '<h1 class="ph">Frequently asked questions</h1><div class="faq">'+FAQ.map(function(q){ return '<details><summary>'+esc(q[0])+'</summary><p>'+esc(q[1])+'</p></details>'; }).join('')+'</div><p class="cfg">To configure: replace with the real answers of the business.</p>') }; }
 function viewContact(){ return { html:page('Contact', eyebrow('Support') + '<h1 class="ph">Contact</h1><div class="two cols"><div class="prose"><p class="cfg">Contact details to configure: customer support email, phone number, opening hours and address. None are provided in this demo.</p></div><form data-form="contact" novalidate><div class="fld"><label for="c-n">Your name</label><input id="c-n" autocomplete="name"><p class="err" id="c-ne" role="alert"></p></div><div class="fld"><label for="c-e">Email</label><input id="c-e" type="email" autocomplete="email"><p class="err" id="c-ee" role="alert"></p></div><div class="fld"><label for="c-m">Message</label><textarea id="c-m" rows="4"></textarea><p class="err" id="c-me" role="alert"></p></div><button class="solid" type="submit">Send message</button><p class="fine">Demo form. Your message is not sent anywhere.</p></form></div>') }; }
-function viewPolicies(){ return { html:page('Policies', eyebrow('Sample policies') + '<h1 class="ph">Shipping, returns and privacy</h1><p class="note">These are sample placeholders. They are not real policies and must be replaced by the business before launch.</p><div class="prose"><h2>Shipping (sample)</h2><p>Shipping options and rates at checkout are sample settings only. No delivery times are promised.</p><h2>Returns (sample)</h2><p>This demo defines no return period, warranty or repair terms. Add real terms here.</p><h2>Privacy (sample)</h2><p>This demo stores your bag, wishlist, recently viewed watches and demo orders in your own browser using local storage. Nothing is sent to a server.</p></div>') }; }
+function viewPolicies(){ return { html:page('Policies', eyebrow('Sample policies') + '<h1 class="ph">Shipping, returns and privacy</h1><p class="note">These are sample placeholders. They are not real policies and must be replaced by the business before launch.</p><div class="prose"><h2>Shipping (sample)</h2><p>'+H.shipping.map(function(o){ return esc(o.label)+' '+money(o.cost)+' ('+esc(H.trust.days[o.id]||'')+')'; }).join('. ')+'. Rates and times are sample settings, and nothing is shipped.</p><h2>Returns (sample)</h2><p>'+esc(H.trust.returns)+' Sample term.</p><h2>Warranty (sample)</h2><p>'+esc(H.trust.warranty)+' Sample term. Replace with the brand\'s real terms.</p><h2>Privacy (sample)</h2><p>This demo stores your bag, wishlist, recently viewed watches and demo orders in your own browser using local storage. Nothing is sent to a server.</p></div>') }; }
 
 /* ---------- routing ---------- */
 function show(which){ var isHome = which === 'home'; home.hidden = !isHome; app.hidden = isHome; document.body.classList.toggle('inshop', !isHome); if(isHome) H.home.show(); }

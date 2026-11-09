@@ -286,3 +286,10 @@ body.lowfps .vp .glass{background:rgba(7,9,13,.8);-webkit-backdrop-filter:none;b
 }
 
 .qc{position:absolute;background:var(--ink);color:var(--cream);font-size:12px;font-weight:700;padding:3px 8px;border-radius:99px}
+
+.trust{margin-top:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust summary{cursor:pointer;min-height:52px;display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;list-style:none}
+.trust summary::-webkit-details-marker{display:none}.trust summary::after{content:"+";font-size:22px;letter-spacing:0;font-weight:400}.trust[open] summary::after{content:"\2212"}
+.trust dl{margin:0 0 4px}.trust dl div{padding:12px 0;border-top:1px solid var(--line)}
+.trust dt{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.65}.trust dd{margin:4px 0 0;line-height:1.6}
+.trust .fine{margin:6px 0 12px}.trust .lnk{display:inline-block;padding:0;min-height:0;margin-left:4px}
